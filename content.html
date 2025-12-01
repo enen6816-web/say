@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跃动青春 - 内容页</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/content_glass_style.css">
+    <link rel="stylesheet" href="static/content_style.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+</head>
+<body>
+    <!-- 背景图片容器 -->
+    <div class="background-container">
+        <img src="static/content-bg.jpg" alt="樱花背景" class="background-image">
+        <div class="glass-overlay"></div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar glass-effect">
+        <div class="container">
+            <h1 class="navbar-title">跃动青春</h1>
+            <ul class="nav-links">
+                <li><a href="#analytics" class="nav-link">弹幕心声</a></li>
+                <li><a href="#characters" class="nav-link">人物长廊</a></li>
+                <li><a href="#xiaomijiang" class="nav-link">小米酱智能助手</a></li>
+                <li><a href="index.html" class="nav-link">返回首页</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主内容容器 -->
+    <main class="content-container container">
+        <!-- 第一部分：弹幕心声（数据分析图表） -->
+        <section id="analytics" class="section glass-effect content-card">
+            <h2 class="section-title">弹幕心声</h2>
+            <div class="charts-grid">
+                <!-- 词频图容器 -->
+                <div class="chart-container">
+                    <h3 class="chart-title">词频分析</h3>
+                    <div id="wordFrequencyChart" class="chart"></div>
+                </div>
+                <!-- 情感分析图容器 -->
+                <div class="chart-container">
+                    <h3 class="chart-title">情感分布</h3>
+                    <div id="sentimentChart" class="chart"></div>
+                </div>
+                <!-- 主题分析图容器 -->
+                <div class="chart-container">
+                    <h3 class="chart-title">主题分析</h3>
+                    <div id="topicChart" class="chart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 第二部分：人物长廊 -->
+        <section id="characters" class="section glass-effect content-card">
+            <h2 class="section-title">人物长廊</h2>
+            <div id="characterCloud" class="character-cloud"></div>
+            <div id="characterDetails" class="character-details"></div>
+        </section>
+
+        <!-- 第三部分：小米酱智能助手 -->
+        <section id="xiaomijiang" class="section glass-effect content-card">
+            <h2 class="section-title">小米酱智能助手</h2>
+            <div id="chat-container" class="chat-container hidden">
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input type="text" id="message-input" class="chat-input" placeholder="与小米酱聊天...">
+                    <button id="send-message" class="send-button">发送</button>
+                    <button id="close-chat" class="close-button">关闭</button>
+                </div>
+            </div>
+            <button id="open-chat" class="open-chat-button">打开小米酱</button>
+        </section>
+    </main>
+
+    <script src="static/script.js"></script>
+</body>
+</html>

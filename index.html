@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跃动青春 - 首页</title>
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        .corner-character {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 10;
+            max-height: 80vh; /* 最大高度为视口高度的80% */
+            max-width: 50vw; /* 最大宽度为视口宽度的50% */
+            object-fit: contain;
+        }
+        
+        @media (max-width: 768px) {
+            .corner-character {
+                max-height: 60vh;
+                max-width: 70vw;
+            }
+        }
+        
+        /* 弹幕容器样式 */
+        .danmu-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2; /* 在背景之上，在标题和人物之下 */
+            overflow: hidden;
+        }
+        
+        /* 弹幕元素样式 */
+        .danmu-item {
+            position: absolute;
+            white-space: nowrap;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.8;
+            animation: danmuMove linear infinite;
+        }
+        
+        /* 弹幕动画 */
+        @keyframes danmuMove {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        
+        /* 响应式弹幕大小 */
+        @media (max-width: 768px) {
+            .danmu-item {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景图片容器 -->
+    <div class="background-container">
+        <img src="static/bg.jpg" alt="跃动青春背景" class="bg-image">
+        <div class="bg-overlay"></div>
+    </div>
+
+    <!-- 首页内容 -->
+    <div class="home-container" style="position: relative; z-index: 6;">
+        <header class="home-header">
+            <h1 class="main-title">跃动青春</h1>
+
+        </header>
+
+        <div class="navigation-buttons">
+            <button id="go-to-danmu" class="nav-button">
+                <span class="button-icon">💬</span>
+                <span class="button-text">弹幕心声</span>
+            </button>
+            <button id="go-to-characters" class="nav-button">
+                <span class="button-icon">👥</span>
+                <span class="button-text">人物长廊</span>
+            </button>
+            <button id="go-to-xiaomijiang" class="nav-button primary">
+                <span class="button-icon">🤖</span>
+                <span class="button-text">小米酱智能助手</span>
+            </button>
+        </div>
+
+        <footer class="home-footer">
+            <p>点击上方按钮开始探索</p>
+        </footer>
+    </div>
+
+    <script src="static/danmu_data.js"></script>
+    <script src="static/home.js"></script>
+    
+    <!-- 弹幕容器 -->
+    <div class="danmu-container" id="danmuContainer"></div>
+    
+    <!-- 右下角人物图片 -->
+    <img src="static/figure1_transparent.png" alt="人物图片" class="corner-character">
+</body>
+</html>
