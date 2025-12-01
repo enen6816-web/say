@@ -422,8 +422,8 @@ function initChat() {
         chatMessages.appendChild(loadingEl);
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
-        // 调用后端API
-    fetch('http://localhost:8005/api/chat', {
+        // 调用后端API - 使用相对路径，适用于任何部署环境
+    fetch('/api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
